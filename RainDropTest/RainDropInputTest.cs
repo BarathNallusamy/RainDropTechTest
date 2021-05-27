@@ -17,13 +17,14 @@ namespace RainDropTest
             Assert.That(result, Is.TypeOf<string>());
         }
 
-        [Ignore("ignore this test")]
+        
         [TestCase(28, "Plong")]
         [TestCase(30, "PlingPlang")]
         [TestCase(34, "34")]
         public void WhenAGivenNumberReturnsAStringBasedOnNumbersFactors(int x, string expected)
         {
-            Assert.Pass();
+            var result = Program.PlingPlangPlong(x);
+            Assert.That(result,Is.EqualTo(expected));
         }
     }
 }

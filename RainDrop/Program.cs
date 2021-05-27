@@ -13,7 +13,8 @@ namespace RainDrop
             if(int.TryParse(input,out number))
             {
                 number = int.Parse(input);
-                PlingPlangPlong(number);
+                string value = PlingPlangPlong(number);
+                Console.WriteLine(value);
             }
             else
             {
@@ -31,7 +32,24 @@ namespace RainDrop
 
         public static string PlingPlangPlong(int number)
         {
-            return "";
+            string result="";
+            if(number%3 != 0 && number % 5 != 0 && number % 7 != 0)
+            {
+                return result = number.ToString();
+            }
+            if(number % 3 == 0)
+            {
+                result += "Pling";
+            }
+            if(number % 5 == 0)
+            {
+                result += "Plang";
+            }
+            if (number %7==0)
+            {
+                result += "Plong";
+            }
+            return result;
         }
     }
 }
