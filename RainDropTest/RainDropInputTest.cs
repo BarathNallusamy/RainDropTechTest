@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using RainDrop;
+using System;
 
 namespace RainDropTest
 {
@@ -10,6 +11,7 @@ namespace RainDropTest
         {
         }
 
+        [Category("Happy")]
         [Test]
         public void WhenAGivenValueIsConvertedToString()
         {
@@ -17,7 +19,14 @@ namespace RainDropTest
             Assert.That(result, Is.TypeOf<string>());
         }
 
-        
+        [Category("Sad")]
+        [Test]
+        public void WhenAnInvalidUserInputIsReturnedException()
+        {
+            Assert.That(() => Program.ConvertUserInputToNumber("test"), Throws.Exception);
+        }
+
+        [Category("Happy")]
         [TestCase(28, "Plong")]
         [TestCase(30, "PlingPlang")]
         [TestCase(34, "34")]

@@ -8,25 +8,22 @@ namespace RainDrop
         {
             Console.Write("Please enter a number: ");
             string input = Console.ReadLine();
-            int number=0;
 
-            if(int.TryParse(input,out number))
+            int number = ConvertUserInputToNumber(input);
+            string value = PlingPlangPlong(number);
+            Console.WriteLine(value);
+        }
+
+        public static int ConvertUserInputToNumber(string input)
+        {
+            if (int.TryParse(input,out _))
             {
-                number = int.Parse(input);
-                string value = PlingPlangPlong(number);
-                Console.WriteLine(value);
+                int result = int.Parse(input);
+                return result;
             }
             else
             {
-                do
-                {
-                    Console.Write("Invalid input please try again: ");
-                    input = Console.ReadLine();
-                } 
-                while (int.TryParse(input, out number));
-                number = int.Parse(input);
-                PlingPlangPlong(number);
-
+                throw new FormatException("Invalid user input");
             }
         }
 
