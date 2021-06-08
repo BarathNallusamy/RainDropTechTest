@@ -32,7 +32,7 @@ namespace RainDrop
             string result="";
             if(number%3 != 0 && number % 5 != 0 && number % 7 != 0)
             {
-                return result = number.ToString();
+                result = number.ToString();
             }
             if(number % 3 == 0)
             {
